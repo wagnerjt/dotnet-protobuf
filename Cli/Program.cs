@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf;
+using Dotnet.Proto.Models;
 
 namespace Dotnet.Proto.CLI
 {
@@ -22,7 +23,7 @@ namespace Dotnet.Proto.CLI
             Console.WriteLine(person.Email);
         }
 
-        
+
 
         private static async Task HttpPostRequest(string url, IMessage message)
         {
@@ -40,30 +41,6 @@ namespace Dotnet.Proto.CLI
                 boj.MergeFrom(await response.Content.ReadAsByteArrayAsync());
                 Console.WriteLine("Successful");
             }
-
-            // var payload = message.ToByteArray();
-
-            // myHttpWebRequest.ContentLength = payload.Length;
-
-            // Stream requestStream = myHttpWebRequest.GetRequestStream();
-            // requestStream.Write(payload, 0, payload.Length);
-            // requestStream.Close();
-
-            // HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
-
-            // Stream responseStream = myHttpWebResponse.GetResponseStream();
-            // var boj = (IMessage)Activator.CreateInstance(typeof(Person));
-            // boj.MergeDelimitedFrom(responseStream);
-
-
-            // StreamReader myStreamReader = new StreamReader(responseStream, Encoding.Default);
-
-            // string pageContent = myStreamReader.ReadToEnd();
-
-            // myStreamReader.Close();
-            // responseStream.Close();
-
-            // myHttpWebResponse.Close();
         }
     }
 }

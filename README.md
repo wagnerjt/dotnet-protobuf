@@ -11,6 +11,16 @@ The following are dependencies to run:
 - DotnetCore 2.1 SDK
 - Nuget or some Internal Mirror of it
 
+### Getting Started
+
+1. First Clone the repository:
+`git clone git@github.com:wagnerjt/dotnet-protobuf.git`
+2. Generate the Protocol Buffer Messages: `protoc --csharp_out=./Models/ ./Models/*.proto`
+    Note: - I used Protoc 3.8 - `protoc --version`
+3. Build the `CLI` or `WebApi` project `dotnet build {Project}/*.csproj`
+4. Run the Project
+5. Check out the `Helpful Resources` section below. Some things I wanted to test pretty quickly.
+
 ## Helpful Resources
 
 ### Curl
