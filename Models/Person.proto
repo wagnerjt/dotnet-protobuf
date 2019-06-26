@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package dotnet_proto_models;
+
+option csharp_namespace = "Dotnet.Proto.Models";
+
+// Basic Person Message
+message Person {
+    // The full name of the person
+    string name = 1;
+    // Unique ID for the person
+    int32 id = 2;
+    // User's email
+    string email = 3;
+}
