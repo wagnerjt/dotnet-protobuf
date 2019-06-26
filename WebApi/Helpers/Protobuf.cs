@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Google.Protobuf;
 using Microsoft.AspNetCore.Mvc.Formatters;
 
+// Super helpful Article Tero.
+// https://tero.teelahti.fi/using-google-proto3-with-aspnet-mvc/
 namespace Dotnet.Proto.Helpers
 {
 
@@ -40,7 +42,7 @@ namespace Dotnet.Proto.Helpers
                 var request = context.HttpContext.Request;
                 var obj = (IMessage)Activator.CreateInstance(context.ModelType);
                 obj.MergeFrom(request.Body);
-                
+
                 // using (var ms = new MemoryStream(2048))
                 // {
                 //     await request.Body.CopyToAsync(ms);
