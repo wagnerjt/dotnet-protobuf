@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Google.Protobuf;
 using Dotnet.Proto.Models;
+using Dotnet.Proto.CLI.Client;
 
 namespace Dotnet.Proto.CLI
 {
@@ -27,7 +26,7 @@ namespace Dotnet.Proto.CLI
 
         private static async Task HttpPostRequest(string endpoint, IMessage message)
         {
-            Client protoClient = new Client("https://localhost:5001/");
+            IClient protoClient = new ProtoClient("https://localhost:5001/");
 
             var result = await protoClient.Post<Person>(endpoint, message);
             Console.WriteLine(result.ToString());
