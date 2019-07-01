@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package dotnet_proto_models;
+
+option csharp_namespace = "Dotnet.Proto.Models";
+
+// Basic Repeated Message
+message Repeats {
+    // Random numbers
+    repeated int32 num = 1;
+}

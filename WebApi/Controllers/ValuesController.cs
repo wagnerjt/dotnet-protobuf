@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Dotnet.Proto.Models;
+using Google.Protobuf.Collections;
 
 namespace Dotnet.Proto.Controllers
 {
@@ -11,9 +12,11 @@ namespace Dotnet.Proto.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<Repeats> Get()
         {
-            return new string[] { "value1", "value2" };
+            var repeats = new Repeats();
+            repeats.Num.AddRange(new List<int> { 5, 4, 3, 2, 1 });
+            return repeats;
         }
 
         // GET api/values/proto
