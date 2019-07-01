@@ -46,6 +46,10 @@ Posting the Json file back: `curl -d "@x.json" -H "Content-Type: application/jso
 - [Async CLI console apps](https://stackoverflow.com/questions/38114553/are-async-console-applications-supported-in-net-core)
 - [ByteArrayContent Class](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.bytearraycontent?view=netcore-2.1)
 
+### Protobuf
+
+- [Dotnet Protobuf Github](https://github.com/protocolbuffers/protobuf/tree/master/csharp)
+
 ## Feedback / Contributing
 
 Add an issue, or even create a MR. Knock out some of those TODOS down below, or something even more :).

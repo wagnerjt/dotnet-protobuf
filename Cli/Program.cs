@@ -16,7 +16,7 @@ namespace Dotnet.Proto.CLI
             var obj = (IMessage)Activator.CreateInstance(typeof(Person));
             obj.MergeFrom(bytes);
 
-            HttpPostRequest("https://localhost:5001/api/values/person", obj).GetAwaiter().GetResult();
+            HttpPostRequest("api/values/person", obj).GetAwaiter().GetResult();
             Console.WriteLine("Hello World!");
 
             var person = (Person) obj;
@@ -25,22 +25,12 @@ namespace Dotnet.Proto.CLI
 
 
 
-        private static async Task HttpPostRequest(string url, IMessage message)
+        private static async Task HttpPostRequest(string endpoint, IMessage message)
         {
-            HttpClient client = new HttpClient();
-            // client.DefaultRequestHeaders.Add("Content-Type", );
+            Client protoClient = new Client("https://localhost:5001/");
 
-            ByteArrayContent payload = new ByteArrayContent(message.ToByteArray());
-            payload.Headers.ContentType = new MediaTypeHeaderValue("application/x-protobuf");
-
-            var content = message.ToByteArray();
-            var response = await client.PostAsync(url, payload);
-            if(response.IsSuccessStatusCode) {
-                Console.WriteLine("Successful");
-                var boj = (IMessage)Activator.CreateInstance(typeof(Person));
-                boj.MergeFrom(await response.Content.ReadAsByteArrayAsync());
-                Console.WriteLine("Successful");
-            }
+            var result = await protoClient.Post<Person>(endpoint, message);
+            Console.WriteLine(result.ToString());
         }
     }
 }
