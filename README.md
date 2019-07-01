@@ -23,9 +23,13 @@ The following are dependencies to run:
 
 ## Helpful Resources
 
+### Protoc
+
+Generating the Messages: `protoc --csharp_out=./Models/ ./Models/*.proto`
+
 ### Curl
 
-Generating the Protocs: `protoc --csharp_out=./Models/ ./Models/*.proto`
+Generating a Json file: `curl -H "Content-Type: application/json" https://localhost:5001/api/values/proto -k > x.json`
 
 Getting the Proto binary: `curl -H "Content-Type: application/x-protobuf" https://localhost:5001/api/values/proto -k > x.bin`
 
@@ -35,7 +39,7 @@ Posting the Json file back: `curl -d "@x.json" -H "Content-Type: application/jso
 
 ### WebApi
 
-- Dotnet Core MVC CustomFormatters](https://stickler.de/en/information/code-snippets/httpwebrequest-with-post-data)
+- [Dotnet Core MVC CustomFormatters](https://stickler.de/en/information/code-snippets/httpwebrequest-with-post-data)
 
 ### CLI
 
