@@ -57,8 +57,11 @@ Add an issue, or even create a MR. Knock out some of those TODOS down below, or 
 ## TODOS
 
 - [x] - Documentation
+- [x] - Create Generic Type for deserialization from web response in CLI
+    - [ ] - Add Error Handling
 - [ ] - Add VsCode Build Steps across the board
 - [ ] - Use the Protoc's Nuget package to generate the proto files
+- [ ] - Add Tests
 - [ ] - Create More Complex Protos
+- [ ] - Ensure ICollections of IMessages can be serialized on the Output of WebApi
 - [ ] - Add Error Handling on the CLI Request
-- [ ] - Create Generic Type for deserialization from web response in CLI
