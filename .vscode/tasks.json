@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Protobuf",
+            "type": "shell",
+            "command": "./scripts/proto-compile.sh",
+            "windows": {
+                "command": "./scripts/proto-compile.sh"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "build webApi",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/WebApi/dotnet-proto.csproj"
+            ],
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build CLI",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Cli/dotnet-proto-cli.csproj"
+            ],
+            "problemMatcher": "$tsc"
+        }
+    ]
+}
