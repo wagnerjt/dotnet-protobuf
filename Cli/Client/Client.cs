@@ -21,19 +21,19 @@ namespace Dotnet.Proto.CLI.Client
             this.client = new HttpClient();
         }
 
-        public async Task<IMessage> Get<T>(string endpoint)
+        public async Task<T> Get<T>(string endpoint) where T : IMessage
         {
             var response = await client.GetAsync(baseUri + endpoint);
             return await DeserializeResponse<T>(response);
         }
 
-        public async Task<IMessage> Get<T>(CancellationToken ct, string endpoint)
+        public async Task<T> Get<T>(CancellationToken ct, string endpoint) where T : IMessage
         {
             var response = await client.GetAsync(baseUri + endpoint, ct);
             return await DeserializeResponse<T>(response);
         }
 
-        public async Task<IMessage> Post<T>(string endpoint, IMessage message)
+        public async Task<T> Post<T>(string endpoint, IMessage message) where T : IMessage
         {
             var payload = SerializePayload(message);
             var response = await client.PostAsync(baseUri + endpoint, payload);
@@ -41,7 +41,7 @@ namespace Dotnet.Proto.CLI.Client
             return await DeserializeResponse<T>(response);
         }
 
-        public async Task<IMessage> Post<T>(CancellationToken ct, string endpoint, IMessage message)
+        public async Task<T> Post<T>(CancellationToken ct, string endpoint, IMessage message) where T : IMessage
         {
             var payload = SerializePayload(message);
             var response = await client.PostAsync(baseUri + endpoint, payload, ct);
@@ -49,7 +49,7 @@ namespace Dotnet.Proto.CLI.Client
             return await DeserializeResponse<T>(response);
         }
 
-        private async Task<IMessage> DeserializeResponse<T>(HttpResponseMessage response)
+        private async Task<T> DeserializeResponse<T>(HttpResponseMessage response) where T : IMessage
         {
             IMessage result = (IMessage) Activator.CreateInstance(typeof(T));
 
@@ -57,7 +57,7 @@ namespace Dotnet.Proto.CLI.Client
                 result.MergeFrom(await response.Content.ReadAsByteArrayAsync());
             }
 
-            return result;
+            return (T) result;
         }
 
         private ByteArrayContent SerializePayload(IMessage message)
