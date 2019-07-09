@@ -49,6 +49,7 @@ Posting the Json file back: `curl -d "@x.json" -H "Content-Type: application/jso
 ### Protobuf
 
 - [Dotnet Protobuf Github](https://github.com/protocolbuffers/protobuf/tree/master/csharp)
+- [Uber's v2 Protobuf Style Guide](https://github.com/uber/prototool/tree/dev/style)
 
 ## Feedback / Contributing
 
@@ -59,8 +60,8 @@ Add an issue, or even create a MR. Knock out some of those TODOS down below, or 
 - [x] - Documentation
 - [x] - Create Generic Type for deserialization from web response in CLI
     - [ ] - Add Error Handling
-- [ ] - Add VsCode Build Steps across the board
-- [ ] - Use the Protoc's Nuget package to generate the proto files
+- [x] - Add VsCode Build Steps across the board
+- [x] - Use the Protoc's Nuget package to generate the proto files
 - [ ] - Add Tests
 - [ ] - Create More Complex Protos
 - [ ] - Ensure ICollections of IMessages can be serialized on the Output of WebApi

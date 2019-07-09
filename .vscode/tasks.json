@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build Protobuf",
+            "label": "Generate Protobuf",
             "type": "shell",
             "command": "./scripts/proto-compile.sh",
             "windows": {
@@ -26,7 +26,8 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "dependsOn": ["Generate Protobuf"]
         },
         {
             "label": "build CLI",
